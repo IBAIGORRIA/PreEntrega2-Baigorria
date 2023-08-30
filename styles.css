@@ -31,7 +31,7 @@ button {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0px 3px 6px rgba(0, 128, 0, 0.2);
-    width: 25%; /* Añade un ancho del 100% para que los botones se ajusten al ancho del contenedor */
+    width: 25%;
 }
 
 button:hover {

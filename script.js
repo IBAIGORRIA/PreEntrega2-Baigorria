@@ -1,6 +1,6 @@
-let cantPer = 0;
+var cantPer = 0;
 
-let monTotal = 0;
+var monTotal = 0;
 
 function dejarPropina(){
     let propina = parseFloat(prompt('Desea Dejar propina?: '));
