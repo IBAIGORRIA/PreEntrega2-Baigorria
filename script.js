@@ -30,7 +30,8 @@ function ActivarMesa(nuMesa) {
             division();
     }else if(cantPer == 4 || cantPer==5){
         alert('Lo acortaremos por fines didácticos, utilice 1, 2 o 3 personas.');
-    }else {
+    }else if(cantPer >= 4){
         alert('Son demasiados, lamentablemente no podemos atenderlos! \n Gracias por elegirnos :D')
     }
+    else{alert('Gracias por venir!');}
 };
