@@ -14,9 +14,9 @@ function division(){
 
 function ingresarValores(){
     for (var i=0; i<cantPer; i++){
-        let comida = parseFloat(prompt('Comensal '+ (i+1) +'\n Ingrese monto comida: '));
-        let bebida = parseFloat(prompt('Comensal '+ (i+1) +'\n Ingrese monto bebida: '));
-        let postre = parseFloat(prompt('Comensal '+ (i+1) +'\n Ingrese monto postre: '));
+        let comida = parseFloat(prompt('Comensal '+ (i+1) +'\n Ingrese valor comida: '));
+        let bebida = parseFloat(prompt('Comensal '+ (i+1) +'\n Ingrese valor bebida: '));
+        let postre = parseFloat(prompt('Comensal '+ (i+1) +'\n Ingrese valor postre: '));
         monTotal += comida + bebida + postre;
         dejarPropina();
         };
