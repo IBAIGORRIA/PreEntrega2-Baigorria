@@ -21,7 +21,7 @@ function ofrecerPromo(){
     };
 };
 
-calculoPropina = (a,b) => {propina = b*a/100;};
+calculoPropina = (porProp,neto) => {propina = neto*porProp/100;};
 
 function dejarPropina(a){
     let consulta = prompt("Su monto total fue de $" + a + "\nLa propina sugerida es de un + "+ prpSug+"% \nDesea(n) dejar propina S/N");
