@@ -42,7 +42,7 @@ button:hover {
 /* Media queries para pantallas más pequeñas */
 @media screen and (max-width: 600px) {
     .center {
-        padding: 10px; /* Reduce el espacio alrededor de los botones en pantallas pequeñas */
+        padding: 10px; 
     }
 }
 
