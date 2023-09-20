@@ -21,14 +21,14 @@ function ofrecerPromo(){
     };
 };
 
+calculoPropina = (a,b) => {propina = b*a/100;};
 
 function dejarPropina(a){
     let consulta = prompt("Su monto total fue de $" + a + "\nLa propina sugerida es de un + "+ prpSug+"% \nDesea(n) dejar propina S/N");
     if (consulta  === "s" || propina === "S") {
-    propina = monTotal*prpSug/100;
-    monTotal = monTotal + propina;
-    console.log(monTotal);
-    };
+        calculoPropina(prpSug, monTotal);
+        monTotal = monTotal + propina;
+        };
 };
 
 function ticket(){
