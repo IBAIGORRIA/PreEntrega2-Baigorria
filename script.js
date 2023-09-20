@@ -27,6 +27,7 @@ function dejarPropina(a){
     if (consulta  === "s" || propina === "S") {
     propina = monTotal*prpSug/100;
     monTotal = monTotal + propina;
+    console.log(monTotal);
     };
 };
 
