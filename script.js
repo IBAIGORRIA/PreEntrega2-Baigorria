@@ -1,6 +1,24 @@
 let cantPer = 0;
-
 let monTotal = 0;
+let montIndiv = [];
+let promos = [{nomb: "Promo_1", cont: "Café con 2 medialunas", valor: 700.00}, {nomb: "Promo_2", cont: "Café Con Carlitos", valor: 1200.00}, {nomb: "Promo_3", cont: "Exprimido Con Carlitos", valor: 1500.00}];
+let promoElegida = 0;
+
+function ofrecerPromo(){
+    let xyx = prompt('Desea conocer nuestras promociones? \n S/N');
+    if (xyx === "S" || xyx === "s"){
+        let mensaje = "Selecciona una de las siguientes promociones:\n";
+        for (let i = 0; i < promos.length; i++) {
+            mensaje += `${i + 1}. ${promos[i].nomb} ${promos[i].cont}...... $${promos[i].valor} \n`;
+        };
+        seleccion = Number(prompt(mensaje + "\n Seleccione 0 para anular."));
+        if (seleccion != 0) {
+            seleccion -=1;
+            promoElegida = promos[(seleccion)].valor;
+        };
+    };
+};
+
 
 function dejarPropina(){
     let propina = Number(prompt('Propina: '));
@@ -9,17 +27,24 @@ function dejarPropina(){
 
 function division(){
         let xPersona = monTotal/cantPer;
-        alert('Deben abonar ' + xPersona.toFixed(2) + ' cada uno.\n El monto total a abonar es :' + monTotal.toFixed(2) );
+        let mensaje = "";
+        for (let i = 0; i < cantPer; i++) {
+            mensaje += `El comensal  ${i + 1} debe abonar $${montIndiv[i]} \n`;
+        };
+        alert(mensaje + 'En partes iguales ' + xPersona.toFixed(2) + ' cada uno.\n El monto total a abonar es :' + monTotal.toFixed(2) );
 };
 
 function ingresarValores(){
     for (let i=0; i<cantPer; i++){
+        ofrecerPromo();
         let comida = Number(prompt('Comensal '+ (i+1) +'\n Ingrese valor comida: '));
         let bebida = Number(prompt('Comensal '+ (i+1) +'\n Ingrese valor bebida: '));
         let postre = Number(prompt('Comensal '+ (i+1) +'\n Ingrese valor postre: '));
-        monTotal += comida + bebida + postre;
+        sumaIndiv =comida + bebida + postre + promoElegida;
+        montIndiv[i] = sumaIndiv;
+        monTotal += sumaIndiv;
         dejarPropina();
-        };
+                };
 };
 
 function activarMesa(nuMesa) {
