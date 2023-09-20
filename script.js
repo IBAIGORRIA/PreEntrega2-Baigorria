@@ -3,6 +3,8 @@ let monTotal = 0;
 let montIndiv = [];
 let promos = [{nomb: "Promo_1", cont: "Café con 2 medialunas", valor: 700.00}, {nomb: "Promo_2", cont: "Café Con Carlitos", valor: 1200.00}, {nomb: "Promo_3", cont: "Exprimido Con Carlitos", valor: 1500.00}];
 let promoElegida = 0;
+let prpSug = 10;
+let propina = 0;
 
 function ofrecerPromo(){
     let xyx = prompt('Desea conocer nuestras promociones? \n S/N');
@@ -20,18 +22,21 @@ function ofrecerPromo(){
 };
 
 
-function dejarPropina(){
-    let propina = Number(prompt('Propina: '));
-        monTotal = monTotal+propina;
+function dejarPropina(a){
+    let consulta = prompt("Su monto total fue de $" + a + "\nLa propina sugerida es de un + "+ prpSug+"% \nDesea(n) dejar propina S/N");
+    if (consulta  === "s" || propina === "S") {
+    propina = monTotal*prpSug/100;
+    monTotal = monTotal + propina;
+    };
 };
 
-function division(){
+function ticket(){
         let xPersona = monTotal/cantPer;
         let mensaje = "";
         for (let i = 0; i < cantPer; i++) {
             mensaje += `El comensal  ${i + 1} debe abonar $${montIndiv[i]} \n`;
         };
-        alert(mensaje + 'En partes iguales ' + xPersona.toFixed(2) + ' cada uno.\n El monto total a abonar es :' + monTotal.toFixed(2) );
+        alert(mensaje + 'Propina: $'+propina+'.\n En partes iguales ' + xPersona.toFixed(2) + ' cada uno.\n El monto total a abonar es :' + monTotal.toFixed(2) );
 };
 
 function ingresarValores(){
@@ -43,8 +48,8 @@ function ingresarValores(){
         sumaIndiv =comida + bebida + postre + promoElegida;
         montIndiv[i] = sumaIndiv;
         monTotal += sumaIndiv;
-        dejarPropina();
-                };
+        };
+        dejarPropina(monTotal);
 };
 
 function activarMesa(nuMesa) {
@@ -52,10 +57,10 @@ function activarMesa(nuMesa) {
     if (cantPer===0) {alert('Gracias por venir!');
     }else if (cantPer >=1 && cantPer<=3){
             ingresarValores();
-            division();
+            ticket();
     }else if(cantPer == 4 || cantPer==5){
         alert('Lo acortaremos por fines didácticos, utilice 1, 2 o 3 personas.');
-    }else if(cantPer >= 4){
+    }else if(cantPer >= 6){
         alert('Son demasiados, lamentablemente no podemos atenderlos! \n Gracias por elegirnos :D')
     }
     else{alert('Gracias por venir!');}
